@@ -18,6 +18,7 @@ curl http://localhost:8008/api/generate -d '{
   "prompt": "Why is the sky blue?"
 }'
 
+
   
 ## run this in terrminal to up and running
  LLM_ENDPOINT_PORT=8008 no_proxy=localhost LLM_MODEL_ID=llama3.2.1b host_ip=$(hostname -I | awk '{print $1}') docker compose up -d

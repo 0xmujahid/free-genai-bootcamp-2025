@@ -16,7 +16,7 @@ services:
       resources:
         limits:
           cpus: '1.5'
-          memory: 4G
+          memory: 4G 
 
 networks:
   default:
