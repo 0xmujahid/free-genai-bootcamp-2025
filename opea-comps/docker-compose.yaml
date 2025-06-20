@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  ollama-server:
+    image: ollama/ollama
+    container_name: ollama-server
+    ports:
+      - ${LLM_ENDPOINT_PORT:-8008}:11434
+    environment:
+      no_proxy: ${no_proxy:-localhost}
+      http_proxy: ${http_proxy:-}
+      https_proxy: ${https_proxy:-}
+      LLM_MODEL_ID: ${LLM_MODEL_ID}
+      OLLAMA_HOST: 0.0.0.0  # Added this required field
+    # Remove any 'resources' section under environment
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 4G
+
+networks:
+  default:
+    driver: bridge
